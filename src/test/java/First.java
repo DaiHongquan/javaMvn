@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.lang.Integer;
 
 // 注释是有必要的，提供解释和理解。单行注释 // 多行注释 /**/  文档注释允许你在程序中嵌入关于程序的信息 /** 开始，以 */结束
 //大小写敏感
@@ -20,11 +21,6 @@ public class First {
     public static void main(String[] args){
         System.out.println("============分界线============");
         // 每个代码语句必须以分号结尾
-
-        //定义一个ArrayList,需要引入(import) java.util.ArrayList
-        //变量标识符intlist，使用赋值符号=赋予了 new ArrayList 实例对象的值（索引，仅基础数据类型是值，其余变量获取的均是索引）
-        //ArrayList<int> intlist = new ArrayList<int>;
-
         //数据类型
         //整数 int double：浮点数 String：字符串（英文双引号包裹） char：单字符（英文单引号包裹） 布尔类型：true 和 false
         //运算符 加 + ,减 -,乘 *,除 /,// 商,% 取余,-- 自减,++ 自增。
@@ -51,6 +47,49 @@ public class First {
         System.out.println("打印输入：" + myScan.nextLine());
 
         System.out.println("============分界线============");
+
+        while(isFlag) {
+            if (number == 0) {
+                System.out.println("number = 0,继续循环。");
+            } else if (number > 0) {
+                System.out.println("number = 1。continue进行下一次循环（跳过本次循环后续代码）");
+                //修改 isFlag 值为false，跳出循环。
+                isFlag = false;
+                //跳过本次循环，进行下一次循环
+                continue;
+            } else {
+                //break 终止循环
+                break;
+            }
+        }
+
+        //普通for循环
+        for(int i=0;i<number;i++){
+            //int number = Integer.parseInt(numberStr);
+            //str += "强制类型转换String.valueOf(i)：" + String.valueOf(i);
+            System.out.println("强制类型转换String.valueOf(i)：" + String.valueOf(i));
+            //System.out.println(i + "哈哈");
+        }
+        //定义一个ArrayList(相较于标准Java数组初始化时必须固定长度，ArrayList可扩展),需要引入(import) java.util.ArrayList
+
+        //变量标识符intlist，使用赋值符号=赋予了 new ArrayList 实例对象的值（索引，仅基础数据类型是值，其余变量获取的均是索引）
+        ArrayList<Integer> intlist = new ArrayList<Integer>();
+        intlist.add(5);
+        intlist.add(9);
+
+        ArrayList<String> colors = new ArrayList<String>();
+        //增加元素 add()，删除元素remove(),
+        colors.add("Red");colors.add("Blue");colors.add("Green");colors.add("Orange");
+        colors.remove("Blue");
+        //contains()：如果列表包含指定的元素，则返回true, 否则返回false。
+        //get(int index)：返回列表中指定位置的元素。 size()：返回列表中元素的数量。 clear()：删除列表中所有元素。
+
+
+        //LinkedList 不能为LinkedList指定初始容量，更适合操作数据（大量的插入和删除）。ArrayList更适合于存储和访问数据（快速访问）。
+        //增强型for循环
+        for(int j:intlist){
+            System.out.println("增强型for循环（int j:intlist）：" + j);
+        }
 
     }
 
