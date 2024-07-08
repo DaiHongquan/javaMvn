@@ -48,6 +48,7 @@ public class First {
 
         System.out.println("============分界线============");
 
+        //while循环
         while(isFlag) {
             if (number == 0) {
                 System.out.println("number = 0,继续循环。");
@@ -62,6 +63,12 @@ public class First {
                 break;
             }
         }
+        //do while 循环，至少执行一次
+        int t = 5;
+        do {
+            System.out.println("do while 循环:" + t);
+            t++;
+        } while(t < 5);
 
         //普通for循环
         for(int i=0;i<number;i++){
@@ -71,7 +78,6 @@ public class First {
             //System.out.println(i + "哈哈");
         }
         //定义一个ArrayList(相较于标准Java数组初始化时必须固定长度，ArrayList可扩展),需要引入(import) java.util.ArrayList
-
         //变量标识符intlist，使用赋值符号=赋予了 new ArrayList 实例对象的值（索引，仅基础数据类型是值，其余变量获取的均是索引）
         ArrayList<Integer> intlist = new ArrayList<Integer>();
         intlist.add(5);
@@ -84,14 +90,50 @@ public class First {
         //contains()：如果列表包含指定的元素，则返回true, 否则返回false。
         //get(int index)：返回列表中指定位置的元素。 size()：返回列表中元素的数量。 clear()：删除列表中所有元素。
 
-
         //LinkedList 不能为LinkedList指定初始容量，更适合操作数据（大量的插入和删除）。ArrayList更适合于存储和访问数据（快速访问）。
         //增强型for循环
         for(int j:intlist){
             System.out.println("增强型for循环（int j:intlist）：" + j);
         }
+        //逻辑运算符 与 &&  或 || 非 !
+        if(2 > 0 || 2 > 1){
+            if(2 > 0 && 2 > 1){
+                if(2 != 0){
+                    System.out.println("逻辑运算符 与 &&  或 || 非 !"  );
+                }
+            }
+        }
+
+        //switch 语句，如果不加break，程序会继续执行完毕所有。default 分支必须是 switch 语句的最后一个分支
+        switch (number){
+            case 0 :
+                System.out.println("switch 语句 number = 0");
+                break;
+            case 1 :
+                System.out.println("switch 语句 number = 1");
+                break;
+            default:
+                System.out.println("switch 语句 number 既不是0 也不是1");
+        }
+        //数组,数组长度 arr.length，索引从0开始；int[] arr = new int[3]的元素为 arr[0] arr[1] arr[2]。整数数组默认初值为0
+        int[] arr = new int[3];
+        //定义arr数组并赋初值
+        //int[] arr = {1,2};
+        //赋值
+        arr[1] = 3;
+        for(int i: arr){
+            System.out.println("打印arr数组：" + i);
+        }
+
+        //多维数组 所有数组成员类型必须是相同
+        int[][] num = {{1,2,3},{4,5,6}};
+        //访问第二个数组的第二个元素
+        int num_element = num[1][1];
+
+        //基本类型传的是值，对象传的引用
+        //基本类型 包括 byte，short，int，long，float，double，boolean和char
+        //传值处理不会影响变量，传对象的引用会影响对象本身
+
 
     }
-
-
 }
