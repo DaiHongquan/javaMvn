@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 import java.lang.Integer;
 
 // 注释是有必要的，提供解释和理解。单行注释 // 多行注释 /**/  文档注释允许你在程序中嵌入关于程序的信息 /** 开始，以 */结束
@@ -91,6 +90,44 @@ public class First {
         //get(int index)：返回列表中指定位置的元素。 size()：返回列表中元素的数量。 clear()：删除列表中所有元素。
 
         //LinkedList 不能为LinkedList指定初始容量，更适合操作数据（大量的插入和删除）。ArrayList更适合于存储和访问数据（快速访问）。
+        //HashMap:用于将数据集合存储为键和值对。一个对象被用作另一个对象（值）的键（索引）
+        //put方法添加元素，使用get方法和相应的键来访问HashMap元素
+        HashMap<String, Integer> points = new HashMap<String, Integer>();
+        points.put("Shuter", 90);
+        points.put("Loen", 85);
+        points.put("Lu", 80);
+        System.out.println("HashMap:" + points.get("Loen"));
+        //containsKey返回的是true/false，用来检查hashmap中有没有shuter键
+        System.out.println(points.containsKey("Shuter"));
+        //Set是不能包含重复元素的集合。它模拟数学集抽象.Set的一个实现是HashSet类。
+        //HashSet类不会自动保留添加元素的顺序。若要对元素进行排序，请使用LinkedHashSet，
+        //它按照它们插入的顺序来维护集合元素的链接列表
+        HashSet<String> set = new HashSet<String>();
+        set.add("A");
+        set.add("B");
+        set.add("C");
+        set.add("A");
+        System.out.println("HashSet:" + set);//输出: [A, B, C]
+        //Java中可用的集合类型，包括Set(集)、List(列表)和Map(映射)，选择使用哪一个取决于你需要存储和操作的数据
+
+        //排序列表 Collections.sort(集合);
+//        max(Collection c)：返回由自然顺序决定的c中的最大元素。
+//        min(Collection c)：返回由自然顺序决定的c中的最小元素。
+//        reverse(List list): 反转列表中的序列。
+//        shuffle(List list): 将列表中的元素随机排序。
+
+        //迭代器是一个能够循环访问，获取或删除元素的对象
+        //每个集合类都提供了一个iterator()方法
+//        Iterator类提供了以下方法：
+//        hasNext()：检查序列中是否还有元素。如果还有元素，则返回true；否则，它返回false。
+//        next()：获得序列中的下一个元素。
+//        remove()：将迭代器新返回的元素删除。
+        Iterator<String> it = set.iterator();
+        while(it.hasNext()){
+            System.out.println("迭代器：" + it.next());
+        }
+
+
         //增强型for循环
         for(int j:intlist){
             System.out.println("增强型for循环（int j:intlist）：" + j);
@@ -151,15 +188,17 @@ public class First {
         //尽管有两个名称相同的对象，因为我们有两个不同的对象（两个不同的引用或内存位置），所以相等性测试返回 false。
         int[] intArr1 = {1};
         int[] intArr2 = {1};
-        } catch (Exception e) {
-            System.out.println("An error occurred");
-        }
+
+
         System.out.println("intArr1数组1与intArr2数组1使用==对比： " + (intArr1 == intArr2));
         //equals：比较是字符串对象的内容
         System.out.println("str1常量字符串1哈与str2常量字符串1哈使用equals对比： " + str1.equals(str2));//true
         System.out.println("str1常量字符串1哈与str3非常量字符串1哈使用equals对比： " + str1.equals(str3));//true
 
         System.out.println("intArr1数组1与intArr2数组1使用equals对比： " + (intArr1.equals(intArr2)));
+        } catch (Exception e) {
+            System.out.println("An error occurred");
+        }
 
         System.out.println("============分界线============");
         //Java API是为你编写的类和接口的集合
@@ -168,20 +207,54 @@ public class First {
         //try/catch 代码块放在异常可能发生的地方。try/catch 代码块中的代码称为保护代码。
         //如果try代码块中的代码抛出异常，则try代码块中的代码将终止执行，并控制权将传递给catch代码块。
         //throw 关键字可以手动生成方法中的异常,throw new Exception("抛出异常");
-        int div(int a, int b) throws ArithmeticException {
-            if(b == 0) {
-                throw new ArithmeticException("Division by Zero");
-            } else {
-                return a / b;
-            }
-            try {
-                int[] intArr4 = {1};
-            } catch (异常类型1 异常的变量名1) {
-                // 程序代码
-            } catch (Exception e) {
-                System.out.println("An error occurred");
-            }
-        }
+//        int div(int a, int b) throws ArithmeticException {
+//            if(b == 0) {
+//                throw new ArithmeticException("Division by Zero");
+//            } else {
+//                return a / b;
+//            }
+//            try {
+//                int[] intArr4 = {1};
+//            } catch (异常类型1 异常的变量名1) {
+//                // 程序代码
+//            } catch (Exception e) {
+//                System.out.println("An error occurred");
+//            }
+//        }
+
+        //多线程编程，创建一个线程的第一种方法是创建一个新的类，该类继承 Thread 类，然后创建一个该类的实例
+        //创建obj对象并调用它的start()方法时，run()方法语句在另一个线程上执行
+//        class MyThread extends Thread {
+//            public void run() {
+//                System.out.println("线程运行中");
+//            }
+//        }
+        //创建一个线程的第二种方法是实现Runnable接口
+//        class MyThread implements Runnable {
+//            public void run() {
+//                System.out.println("线程运行中");
+//            }
+//        }
+//        // 创建 MyThread 的实例
+//        MyThread myThread = new MyThread();
+//        // 使用 MyThread 实例创建 Thread 对象
+//        Thread thread = new Thread(myThread);
+//        // 启动线程
+//        thread.start();
+//        try {
+//            // 让主线程也暂停一会儿，以便观察效果
+//            Thread.sleep(500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        //检查异常是运行时异常以外的异常, 也是Exception及其子类, 这些异常从程序的角度来说是必须经过捕捉检查处理的,
+        // 否则不能通过编译. 如IOException、SQLException等
+        //运行时异常都是RuntimeException类及其子类, 如 NullPointerException、IndexOutOfBoundsException等,
+        // 这些异常是不检查的异常, 是在程序运行的时候可能会发生的, 所以程序可以捕捉, 也可以不捕捉.
+        // 这些错误一般是由程序的逻辑错误引起的, 程序应该从逻辑角度去尽量避免
+
+
 
 
     }
