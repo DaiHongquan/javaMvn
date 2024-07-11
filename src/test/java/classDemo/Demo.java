@@ -41,6 +41,8 @@ public class Demo {
         Animal animal = new Animal();
         //调用有参构造函数
         Animal animal2 = new Animal("牛");
+        //调用了内部类
+        animal2.barking();
         //调用get及set方法
         animal.setName(animal2.getName());
         System.out.println("将animal2.getName()获取到的name使用animal.setName(animal2.getName())赋值给animal：" + animal.getName());
@@ -75,6 +77,8 @@ public class Demo {
 
         Student student = new Student();
         student.eat("张三");
+
+
 
 
     }

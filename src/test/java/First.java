@@ -130,13 +130,58 @@ public class First {
         //访问第二个数组的第二个元素
         int num_element = num[1][1];
 
+        System.out.println("============分界线============");
         //基本类型传的是值，对象传的引用
         //基本类型 包括 byte，short，int，long，float，double，boolean和char
         //传值处理不会影响变量，传对象的引用会影响对象本身
         //将一个类型的值赋给另一个类型的变量称为类型转换。要将值转换为特定类型，请将该类型放在括号中，并将其放在值的前面。
         //强制类型转换,整数自动类型转换为浮点，因为没有精度损失，浮点值赋值给整型变量时，强制类型转换是强制性的, 可能会有精度损失。
         int dnum = (int)5.25;
+        //对象比较 (==)比较非基本类型时，它实际上比较的是引用而不是对象值
+        //只有两个字符串变量都是指向字符串的常量对象时，才会返回true,，其他的都是false
+        String str1 = "1哈";
+        String str2 = "1哈";
+        //常量对象，返回true
+        System.out.println("str1常量字符串1哈与str2常量字符串1哈使用==对比： " + (str1 == str2));
+        String str3 = new String("1哈");
+        String str4 = new String("1哈");
+        //非常量对象，返回flase
+        System.out.println("str3非常量字符串1哈与str4非常量字符串1哈使用==对比： " + (str3 == str4));
+        try {
+        //尽管有两个名称相同的对象，因为我们有两个不同的对象（两个不同的引用或内存位置），所以相等性测试返回 false。
+        int[] intArr1 = {1};
+        int[] intArr2 = {1};
+        } catch (Exception e) {
+            System.out.println("An error occurred");
+        }
+        System.out.println("intArr1数组1与intArr2数组1使用==对比： " + (intArr1 == intArr2));
+        //equals：比较是字符串对象的内容
+        System.out.println("str1常量字符串1哈与str2常量字符串1哈使用equals对比： " + str1.equals(str2));//true
+        System.out.println("str1常量字符串1哈与str3非常量字符串1哈使用equals对比： " + str1.equals(str3));//true
 
+        System.out.println("intArr1数组1与intArr2数组1使用equals对比： " + (intArr1.equals(intArr2)));
+
+        System.out.println("============分界线============");
+        //Java API是为你编写的类和接口的集合
+        //包含所有可用API的Java API文档可以在Oracle网站上找到 （http://docs.oracle.com/javase/7/docs/api/）。
+        //异常处理是处理运行时错误以保持正常应用程序流的强大机制，一个写得好的程序应该处理所有可能的异常情况。
+        //try/catch 代码块放在异常可能发生的地方。try/catch 代码块中的代码称为保护代码。
+        //如果try代码块中的代码抛出异常，则try代码块中的代码将终止执行，并控制权将传递给catch代码块。
+        //throw 关键字可以手动生成方法中的异常,throw new Exception("抛出异常");
+        int div(int a, int b) throws ArithmeticException {
+            if(b == 0) {
+                throw new ArithmeticException("Division by Zero");
+            } else {
+                return a / b;
+            }
+            try {
+                int[] intArr4 = {1};
+            } catch (异常类型1 异常的变量名1) {
+                // 程序代码
+            } catch (Exception e) {
+                System.out.println("An error occurred");
+            }
+        }
 
 
     }
